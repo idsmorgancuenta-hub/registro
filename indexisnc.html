@@ -1,0 +1,4316 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Registro</title>
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         ESTILOS
+    ====================================================== -->
+
+    <style>
+
+        :root {
+
+            --verde: #80a031;
+            --verde-dark: #657f27;
+            --verde-light: #eef3e4;
+
+            --cafe: #916111;
+            --cafe-dark: #70490c;
+            --cafe-light: #f6eee2;
+
+            --negro: #181818;
+
+            --gris: #737373;
+            --gris-claro: #f5f4f1;
+
+            --borde: #e7e3da;
+
+            --blanco: #ffffff;
+
+            --sombra:
+                0 18px 50px rgba(48, 38, 22, .08);
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                "Montserrat",
+                sans-serif;
+
+            color:
+                var(--negro);
+
+            background:
+
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(128,160,49,.11),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 5% 30%,
+                    rgba(145,97,17,.08),
+                    transparent 24%
+                ),
+
+                #f8f7f4;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .topbar {
+
+            height: 78px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                rgba(255,255,255,.94);
+
+            backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid
+                rgba(145,97,17,.10);
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,.03);
+        }
+
+
+        .system-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .system-icon {
+
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 13px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cafe),
+                    var(--verde)
+                );
+
+            box-shadow:
+                0 8px 22px
+                rgba(145,97,17,.18);
+        }
+
+
+        .system-icon i {
+            font-size: 20px;
+        }
+
+
+        .system-title {
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .system-subtitle {
+
+            margin-top: 2px;
+
+            color: var(--gris);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .hero {
+
+            padding:
+                45px 0 30px;
+        }
+
+
+        .hero-card {
+
+            min-height: 300px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 55px;
+
+            border-radius: 30px;
+
+            color: white;
+
+            background:
+
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(128,160,49,.48),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 65% 100%,
+                    rgba(145,97,17,.55),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    125deg,
+                    #171717 0%,
+                    #28231c 60%,
+                    #352914 100%
+                );
+
+            box-shadow:
+                0 25px 65px
+                rgba(38,30,19,.16);
+        }
+
+
+        .hero-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            right: -150px;
+            top: -170px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.13);
+
+            border-radius: 50%;
+        }
+
+
+        .hero-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            right: 30px;
+            bottom: -220px;
+
+            border:
+                1px solid
+                rgba(128,160,49,.20);
+
+            border-radius: 50%;
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 720px;
+        }
+
+
+        .hero-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-bottom: 15px;
+
+            color:
+                #d9bf8a;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero-label::before {
+
+            content: "";
+
+            width: 30px;
+            height: 2px;
+
+            background:
+                var(--verde);
+        }
+
+
+        .hero h1 {
+
+            margin: 0;
+
+            font-size:
+                clamp(38px, 6vw, 65px);
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: -2px;
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--verde);
+        }
+
+
+        .hero-description {
+
+            max-width: 620px;
+
+            margin:
+                22px 0 0;
+
+            color:
+                rgba(255,255,255,.70);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+
+        .connection-status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 24px;
+
+            padding:
+                10px 15px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.13);
+
+            border-radius: 50px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+
+        .connection-dot {
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                var(--verde);
+
+            box-shadow:
+                0 0 0 4px
+                rgba(128,160,49,.13);
+
+            animation:
+                pulse 2s infinite;
+        }
+
+
+        @keyframes pulse {
+
+            0%,100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .45;
+            }
+        }
+
+
+        /* =====================================================
+           ESTADÍSTICAS
+        ====================================================== */
+
+        .stats {
+            margin-top: 25px;
+        }
+
+
+        .stat-card {
+
+            height: 100%;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 21px;
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--borde);
+
+            border-radius: 19px;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+
+        .stat-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--sombra);
+        }
+
+
+        .stat-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 90px;
+            height: 90px;
+
+            right: -35px;
+            bottom: -40px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(128,160,49,.07);
+        }
+
+
+        .stat-icon {
+
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 15px;
+
+            border-radius: 13px;
+
+            background:
+                var(--verde-light);
+
+            color:
+                var(--verde);
+        }
+
+
+        .stat-card:nth-child(2) .stat-icon,
+        .stat-card:nth-child(4) .stat-icon {
+
+            background:
+                var(--cafe-light);
+
+            color:
+                var(--cafe);
+        }
+
+
+        .stat-number {
+
+            font-size: 29px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+        }
+
+
+        .stat-label {
+
+            margin-top: 2px;
+
+            color:
+                var(--gris);
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           SECCIONES
+        ====================================================== */
+
+        .section {
+
+            margin-top: 58px;
+        }
+
+
+        .section-heading {
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-title {
+
+            margin: 0;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            letter-spacing: -.5px;
+        }
+
+
+        .section-subtitle {
+
+            margin-top: 7px;
+
+            color:
+                var(--gris);
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           PANEL
+        ====================================================== */
+
+        .panel {
+
+            padding: 30px;
+
+            background:
+                rgba(255,255,255,.95);
+
+            border:
+                1px solid
+                var(--borde);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 12px 40px
+                rgba(50,40,20,.045);
+        }
+
+
+        /* =====================================================
+           FORMULARIO
+        ====================================================== */
+
+        .form-label {
+
+            margin-bottom: 8px;
+
+            color:
+                #3c3c3c;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: .7px;
+
+            text-transform: uppercase;
+        }
+
+
+        .form-control,
+        .form-select {
+
+            min-height: 51px;
+
+            padding:
+                12px 14px;
+
+            border:
+                1px solid
+                #dedbd3;
+
+            border-radius: 12px;
+
+            background:
+                white;
+
+            font-family:
+                "Montserrat",
+                sans-serif;
+
+            font-size: 12px;
+
+            transition:
+                border-color .2s,
+                box-shadow .2s;
+        }
+
+
+        .form-control:focus,
+        .form-select:focus {
+
+            border-color:
+                var(--verde);
+
+            box-shadow:
+                0 0 0 4px
+                rgba(128,160,49,.10);
+        }
+
+
+        textarea.form-control {
+
+            min-height: 115px;
+
+            resize: vertical;
+        }
+
+
+        /* =====================================================
+           BOTÓN
+        ====================================================== */
+
+        .btn-main {
+
+            min-height: 53px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    110deg,
+                    var(--cafe),
+                    #a97720 48%,
+                    var(--verde)
+                );
+
+            background-size:
+                180% 100%;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .5px;
+
+            box-shadow:
+                0 10px 25px
+                rgba(145,97,17,.19);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                background-position .4s;
+        }
+
+
+        .btn-main:hover {
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+
+            background-position:
+                100% 0;
+
+            box-shadow:
+                0 15px 30px
+                rgba(128,160,49,.20);
+        }
+
+
+        /* =====================================================
+           FILTROS
+        ====================================================== */
+
+        .search-box {
+
+            position: relative;
+        }
+
+
+        .search-box i {
+
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                var(--gris);
+
+            z-index: 3;
+        }
+
+
+        .search-box input {
+
+            padding-left: 43px;
+        }
+
+
+        .btn-pdf {
+
+            min-height: 50px;
+
+            border:
+                1px solid
+                var(--cafe);
+
+            color:
+                var(--cafe);
+
+            background:
+                var(--cafe-light);
+
+            border-radius: 12px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            transition: .2s;
+        }
+
+
+        .btn-pdf:hover {
+
+            color: white;
+
+            background:
+                var(--cafe);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           TABLA
+        ====================================================== */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+
+            border:
+                1px solid
+                var(--borde);
+
+            border-radius: 16px;
+        }
+
+
+        table {
+
+            min-width: 850px;
+
+            margin: 0 !important;
+        }
+
+
+        .table thead th {
+
+            padding:
+                15px 13px;
+
+            border: none;
+
+            color:
+                var(--gris);
+
+            background:
+                #faf9f6;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .table tbody td {
+
+            padding:
+                15px 13px;
+
+            border-bottom:
+                1px solid
+                #efede8;
+
+            vertical-align: middle;
+
+            font-size: 11px;
+        }
+
+
+        .table tbody tr {
+
+            transition:
+                background .2s;
+        }
+
+
+        .table tbody tr:hover {
+
+            background:
+                rgba(128,160,49,.035);
+        }
+
+
+        .table tbody tr:last-child td {
+
+            border-bottom: none;
+        }
+
+
+        .participant {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+        }
+
+
+        .avatar {
+
+            width: 37px;
+            height: 37px;
+
+            flex: 0 0 37px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cafe),
+                    var(--verde)
+                );
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        .participant-name {
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        .participant-email {
+
+            margin-top: 3px;
+
+            color:
+                var(--gris);
+
+            font-size: 9px;
+        }
+
+
+        .badge-city {
+
+            display: inline-block;
+
+            padding:
+                7px 10px;
+
+            border-radius: 30px;
+
+            background:
+                var(--verde-light);
+
+            color:
+                var(--verde-dark);
+
+            font-size: 9px;
+
+            font-weight: 800;
+        }
+
+
+        .action-btn {
+
+            width: 35px;
+            height: 35px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                1px solid
+                var(--borde);
+
+            border-radius: 9px;
+
+            background: white;
+
+            color:
+                var(--gris);
+
+            transition: .2s;
+        }
+
+
+        .action-btn:hover {
+
+            color:
+                var(--cafe);
+
+            border-color:
+                rgba(145,97,17,.25);
+
+            background:
+                var(--cafe-light);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           EMPTY
+        ====================================================== */
+
+        .empty {
+
+            padding:
+                60px 20px;
+
+            text-align: center;
+
+            color:
+                var(--gris);
+        }
+
+
+        .empty-icon {
+
+            width: 60px;
+            height: 60px;
+
+            margin:
+                0 auto 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background:
+                var(--verde-light);
+
+            color:
+                var(--verde);
+
+            font-size: 25px;
+        }
+
+
+        .empty strong {
+
+            display: block;
+
+            color:
+                var(--negro);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           MODAL
+        ====================================================== */
+
+        .modal-content {
+
+            border: none;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,.20);
+        }
+
+
+        .modal-header {
+
+            padding:
+                20px 24px;
+
+            border-bottom:
+                1px solid
+                var(--borde);
+
+            background:
+                white;
+        }
+
+
+        .modal-title-custom {
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+
+        .modal-body {
+
+            padding: 24px;
+        }
+
+
+        .detail-box {
+
+            height: 100%;
+
+            padding: 15px;
+
+            background:
+                #faf9f6;
+
+            border:
+                1px solid
+                var(--borde);
+
+            border-radius: 13px;
+        }
+
+
+        .detail-label {
+
+            margin-bottom: 6px;
+
+            color:
+                var(--gris);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .detail-value {
+
+            color:
+                var(--negro);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            word-break: break-word;
+        }
+
+
+        /* =====================================================
+           LOADING
+        ====================================================== */
+
+        .loading-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            background:
+                rgba(255,255,255,.94);
+
+            backdrop-filter:
+                blur(10px);
+        }
+
+
+        .loading-screen.active {
+
+            display: flex;
+        }
+
+
+        .spinner {
+
+            width: 45px;
+            height: 45px;
+
+            border:
+                4px solid
+                #e8e5de;
+
+            border-top-color:
+                var(--verde);
+
+            border-right-color:
+                var(--cafe);
+
+            border-radius: 50%;
+
+            animation:
+                spin .75s linear infinite;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            margin-top: 70px;
+
+            padding:
+                35px 0;
+
+            border-top:
+                1px solid
+                var(--borde);
+
+            color:
+                var(--gris);
+
+            text-align: center;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           ANIMACIÓN
+        ====================================================== */
+
+        .fade-up {
+
+            animation:
+                fadeUp .7s ease both;
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media(max-width:768px) {
+
+            .topbar {
+                height: 68px;
+            }
+
+
+            .hero {
+                padding-top: 25px;
+            }
+
+
+            .hero-card {
+
+                min-height: 310px;
+
+                padding:
+                    35px 25px;
+
+                border-radius: 22px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 44px;
+
+                letter-spacing: -1.5px;
+            }
+
+
+            .panel {
+
+                padding: 21px;
+
+                border-radius: 19px;
+            }
+
+
+            .section {
+
+                margin-top: 42px;
+            }
+
+
+            .section-title {
+
+                font-size: 21px;
+            }
+
+
+            .system-title {
+
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOADING
+====================================================== -->
+
+<div
+    class="loading-screen"
+    id="loadingScreen"
+>
+
+    <div class="spinner"></div>
+
+    <div
+        class="mt-3 fw-bold small"
+        id="loadingText"
+    >
+        Conectando con Firebase...
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="topbar">
+
+    <div class="container">
+
+        <div class="system-brand">
+
+            <div class="system-icon">
+
+                <i class="bi bi-database-check"></i>
+
+            </div>
+
+            <div>
+
+                <div class="system-title">
+                    Sistema de Registro
+                </div>
+
+                <div class="system-subtitle">
+                    Administración de registros
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-card fade-up">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    Panel administrativo
+                </div>
+
+                <h1>
+                    Sistema de
+                    <span>Registro</span>
+                </h1>
+
+                <p class="hero-description">
+
+                    Administra, consulta y genera documentos
+                    de todos los participantes registrados.
+                    La información mostrada se obtiene
+                    directamente desde la base de datos
+                    de Firebase.
+
+                </p>
+
+                <div class="connection-status">
+
+                    <span class="connection-dot"></span>
+
+                    Firebase conectado · Datos en tiempo real
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ESTADÍSTICAS
+====================================================== -->
+
+<section class="container stats">
+
+    <div class="row g-3">
+
+
+        <!-- TOTAL -->
+
+        <div class="col-6 col-lg-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="bi bi-people"></i>
+
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="totalInscritos"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Total registrados
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LA CEIBA -->
+
+        <div class="col-6 col-lg-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="bi bi-geo-alt"></i>
+
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="totalCeiba"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    La Ceiba
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARIZONA -->
+
+        <div class="col-6 col-lg-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="bi bi-geo-alt"></i>
+
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="totalArizona"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Arizona
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TELA -->
+
+        <div class="col-6 col-lg-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="bi bi-geo-alt"></i>
+
+                </div>
+
+                <div
+                    class="stat-number"
+                    id="totalTela"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    Tela
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FORMULARIO
+====================================================== -->
+
+<section class="container section">
+
+    <div class="section-heading">
+
+        <h2 class="section-title">
+            Nuevo registro
+        </h2>
+
+        <div class="section-subtitle">
+            Agrega directamente un participante a Firebase.
+        </div>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10">
+
+            <div class="panel">
+
+                <form id="registroForm">
+
+                    <div class="row g-3">
+
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Nombre *
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nombre"
+                                placeholder="Nombre del participante"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Apellido *
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="apellido"
+                                placeholder="Apellido del participante"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Teléfono *
+                            </label>
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                id="telefono"
+                                placeholder="9999-9999"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Correo electrónico
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="correo"
+                                placeholder="correo@ejemplo.com"
+                            >
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Lugar *
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="ciudad"
+                                required
+                            >
+
+                                <option value="">
+                                    Seleccionar lugar
+                                </option>
+
+                                <option value="La Ceiba">
+                                    La Ceiba
+                                </option>
+
+                                <option value="Arizona">
+                                    Arizona
+                                </option>
+
+                                <option value="Tela">
+                                    Tela
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Acompañantes
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="acompanantes"
+                            >
+
+                                <option value="0">
+                                    Ninguno
+                                </option>
+
+                                <option value="1">
+                                    1 acompañante
+                                </option>
+
+                                <option value="2">
+                                    2 acompañantes
+                                </option>
+
+                                <option value="3">
+                                    3 acompañantes
+                                </option>
+
+                                <option value="4">
+                                    4 acompañantes
+                                </option>
+
+                                <option value="5">
+                                    5 acompañantes
+                                </option>
+
+                                <option value="6">
+                                    6 acompañantes
+                                </option>
+
+                                <option value="7">
+                                    7 acompañantes
+                                </option>
+
+                                <option value="8">
+                                    8 acompañantes
+                                </option>
+
+                                <option value="9">
+                                    9 acompañantes
+                                </option>
+
+                                <option value="10">
+                                    10 acompañantes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <label class="form-label">
+                                Observaciones
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="observaciones"
+                                placeholder="Información adicional..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="col-12 pt-2">
+
+                            <button
+                                type="submit"
+                                class="btn btn-main w-100"
+                            >
+
+                                <i class="bi bi-cloud-arrow-up me-2"></i>
+
+                                GUARDAR REGISTRO EN FIREBASE
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REGISTROS
+====================================================== -->
+
+<section class="container section mb-5">
+
+    <div class="section-heading">
+
+        <h2 class="section-title">
+            Registros
+        </h2>
+
+        <div class="section-subtitle">
+            Información obtenida directamente de Firebase.
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+
+        <!-- FILTROS -->
+
+        <div class="row g-2 mb-4">
+
+
+            <div class="col-lg-7">
+
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="buscar"
+                        class="form-control"
+                        placeholder="Buscar nombre, teléfono o correo..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <select
+                    id="filtroCiudad"
+                    class="form-select"
+                >
+
+                    <option value="todas">
+                        Todas las ciudades
+                    </option>
+
+                    <option value="La Ceiba">
+                        La Ceiba
+                    </option>
+
+                    <option value="Arizona">
+                        Arizona
+                    </option>
+
+                    <option value="Tela">
+                        Tela
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="col-lg-2">
+
+                <button
+                    class="btn btn-pdf w-100"
+                    onclick="exportarTodosPDF()"
+                >
+
+                    <i class="bi bi-file-earmark-pdf me-1"></i>
+
+                    EXPORTAR
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TABLA -->
+
+        <div class="table-wrapper">
+
+            <table class="table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Participante
+                        </th>
+
+                        <th>
+                            Teléfono
+                        </th>
+
+                        <th>
+                            Lugar
+                        </th>
+
+                        <th>
+                            Acompañantes
+                        </th>
+
+                        <th>
+                            Registro
+                        </th>
+
+                        <th>
+                            Acción
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="tablaRegistros"></tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- VACÍO -->
+
+        <div
+            class="empty"
+            id="estadoVacio"
+            style="display:none;"
+        >
+
+            <div class="empty-icon">
+
+                <i class="bi bi-person-x"></i>
+
+            </div>
+
+            <strong>
+                No hay registros
+            </strong>
+
+            <div class="small mt-1">
+                Los participantes aparecerán aquí automáticamente.
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MODAL DETALLE
+====================================================== -->
+
+<div
+    class="modal fade"
+    id="modalDetalle"
+    tabindex="-1"
+>
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <div class="modal-title-custom">
+                        Detalle del registro
+                    </div>
+
+                    <div class="small text-muted">
+                        Información almacenada en Firebase
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button>
+
+            </div>
+
+
+            <div
+                class="modal-body"
+                id="detalleContenido"
+            ></div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    SISTEMA DE REGISTRO · FIREBASE · 2026
+
+</footer>
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+====================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- =====================================================
+     JSPDF
+====================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<!-- =====================================================
+     FIREBASE
+====================================================== -->
+
+<script type="module">
+
+
+    /* =====================================================
+       IMPORTACIONES FIREBASE
+    ====================================================== */
+
+    import {
+        initializeApp
+    }
+    from
+    "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+
+
+    import {
+
+        getFirestore,
+
+        collection,
+
+        addDoc,
+
+        onSnapshot,
+
+        serverTimestamp
+
+    }
+    from
+    "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+
+    /* =====================================================
+       CONFIGURACIÓN FIREBASE
+    ====================================================== */
+
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyDA4QiJTTZJsoZpNQ1dh9M4gDCW_g2zyzA",
+
+        authDomain:
+            "cowboyparty-1e2c6.firebaseapp.com",
+
+        projectId:
+            "cowboyparty-1e2c6",
+
+        storageBucket:
+            "cowboyparty-1e2c6.firebasestorage.app",
+
+        messagingSenderId:
+            "828155637974",
+
+        appId:
+            "1:828155637974:web:09b0f574d9911a47d01977",
+
+        measurementId:
+            "G-XCQYR13D92"
+
+    };
+
+
+    /* =====================================================
+       INICIALIZAR FIREBASE
+    ====================================================== */
+
+    const app =
+        initializeApp(
+            firebaseConfig
+        );
+
+
+    const db =
+        getFirestore(
+            app
+        );
+
+
+    /* =====================================================
+       COLECCIÓN FIREBASE
+       
+       IMPORTANTE:
+       El formulario y este panel utilizan:
+       
+       registros
+       
+    ====================================================== */
+
+    const registrosRef =
+        collection(
+            db,
+            "registros"
+        );
+
+
+    /* =====================================================
+       VARIABLES
+    ====================================================== */
+
+    let registros = [];
+
+
+    /* =====================================================
+       ELEMENTOS
+    ====================================================== */
+
+    const form =
+        document.getElementById(
+            "registroForm"
+        );
+
+
+    const tabla =
+        document.getElementById(
+            "tablaRegistros"
+        );
+
+
+    const estadoVacio =
+        document.getElementById(
+            "estadoVacio"
+        );
+
+
+    const buscar =
+        document.getElementById(
+            "buscar"
+        );
+
+
+    const filtroCiudad =
+        document.getElementById(
+            "filtroCiudad"
+        );
+
+
+    const loadingScreen =
+        document.getElementById(
+            "loadingScreen"
+        );
+
+
+    const loadingText =
+        document.getElementById(
+            "loadingText"
+        );
+
+
+    /* =====================================================
+       LOADING
+    ====================================================== */
+
+    function loading(texto) {
+
+        loadingText.textContent =
+            texto;
+
+        loadingScreen.classList.add(
+            "active"
+        );
+
+    }
+
+
+    function ocultarLoading() {
+
+        loadingScreen.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    /* =====================================================
+       MENSAJE
+    ====================================================== */
+
+    function mensaje(texto) {
+
+        alert(texto);
+
+    }
+
+
+    /* =====================================================
+       GUARDAR REGISTRO
+    ====================================================== */
+
+    form.addEventListener(
+        "submit",
+        async function(e) {
+
+            e.preventDefault();
+
+
+            const nombre =
+                document
+                .getElementById("nombre")
+                .value
+                .trim();
+
+
+            const apellido =
+                document
+                .getElementById("apellido")
+                .value
+                .trim();
+
+
+            const telefono =
+                document
+                .getElementById("telefono")
+                .value
+                .trim();
+
+
+            const correo =
+                document
+                .getElementById("correo")
+                .value
+                .trim();
+
+
+            const ciudad =
+                document
+                .getElementById("ciudad")
+                .value;
+
+
+            const acompanantes =
+                Number(
+                    document
+                    .getElementById("acompanantes")
+                    .value
+                );
+
+
+            const observaciones =
+                document
+                .getElementById("observaciones")
+                .value
+                .trim();
+
+
+            /* VALIDACIÓN */
+
+            if (
+                !nombre ||
+                !apellido ||
+                !telefono ||
+                !ciudad
+            ) {
+
+                mensaje(
+                    "Completa todos los campos obligatorios."
+                );
+
+                return;
+
+            }
+
+
+            try {
+
+                loading(
+                    "Guardando registro en Firebase..."
+                );
+
+
+                /* =================================================
+                   GUARDAR EN FIRESTORE
+                ================================================= */
+
+                await addDoc(
+                    registrosRef,
+                    {
+
+                        nombre:
+                            nombre,
+
+                        apellido:
+                            apellido,
+
+                        telefono:
+                            telefono,
+
+                        correo:
+                            correo,
+
+                        ciudad:
+                            ciudad,
+
+                        acompanantes:
+                            acompanantes,
+
+                        observaciones:
+                            observaciones,
+
+                        evento:
+                            "Registro",
+
+                        fechaEvento:
+                            "18 de octubre de 2026",
+
+                        creadoEn:
+                            serverTimestamp()
+
+                    }
+                );
+
+
+                /* LIMPIAR FORMULARIO */
+
+                form.reset();
+
+
+                mensaje(
+                    "Registro guardado correctamente en Firebase."
+                );
+
+
+            }
+            catch(error) {
+
+                console.error(
+                    "Error Firebase:",
+                    error
+                );
+
+
+                mensaje(
+                    "No se pudo guardar el registro. Revisa las reglas de Firestore."
+                );
+
+            }
+            finally {
+
+                ocultarLoading();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       FIREBASE EN TIEMPO REAL
+       
+       Cada vez que cambia la colección "registros",
+       la tabla se actualiza automáticamente.
+    ====================================================== */
+
+    function escucharRegistros() {
+
+        loading(
+            "Conectando con Firebase..."
+        );
+
+
+        onSnapshot(
+
+            registrosRef,
+
+            (snapshot) => {
+
+
+                registros = [];
+
+
+                snapshot.forEach(
+                    (doc) => {
+
+                        registros.push({
+
+                            id:
+                                doc.id,
+
+                            ...doc.data()
+
+                        });
+
+                    }
+                );
+
+
+                /* ORDENAR MÁS RECIENTES PRIMERO */
+
+                registros.sort(
+                    (a,b) => {
+
+                        const fechaA =
+                            obtenerFecha(
+                                a.creadoEn
+                            );
+
+
+                        const fechaB =
+                            obtenerFecha(
+                                b.creadoEn
+                            );
+
+
+                        return fechaB - fechaA;
+
+                    }
+                );
+
+
+                /* DISPONIBLE GLOBALMENTE */
+
+                window.__registros =
+                    registros;
+
+
+                /* ACTUALIZAR */
+
+                actualizarEstadisticas();
+
+                renderizarTabla();
+
+
+                ocultarLoading();
+
+            },
+
+
+            (error) => {
+
+                console.error(
+                    "Error escuchando Firebase:",
+                    error
+                );
+
+
+                ocultarLoading();
+
+
+                mensaje(
+                    "No se pudieron cargar los registros de Firebase."
+                );
+
+            }
+
+        );
+
+    }
+
+
+    /* =====================================================
+       OBTENER FECHA
+    ====================================================== */
+
+    function obtenerFecha(
+        timestamp
+    ) {
+
+        if (!timestamp) {
+
+            return new Date(0);
+
+        }
+
+
+        try {
+
+            if (
+                typeof timestamp.toDate ===
+                "function"
+            ) {
+
+                return timestamp.toDate();
+
+            }
+
+
+            return new Date(
+                timestamp
+            );
+
+        }
+        catch {
+
+            return new Date(0);
+
+        }
+
+    }
+
+
+    /* =====================================================
+       ESTADÍSTICAS
+    ====================================================== */
+
+    function actualizarEstadisticas() {
+
+
+        document.getElementById(
+            "totalInscritos"
+        ).textContent =
+            registros.length;
+
+
+        document.getElementById(
+            "totalCeiba"
+        ).textContent =
+
+            registros.filter(
+                x =>
+                    x.ciudad ===
+                    "La Ceiba"
+            ).length;
+
+
+        document.getElementById(
+            "totalArizona"
+        ).textContent =
+
+            registros.filter(
+                x =>
+                    x.ciudad ===
+                    "Arizona"
+            ).length;
+
+
+        document.getElementById(
+            "totalTela"
+        ).textContent =
+
+            registros.filter(
+                x =>
+                    x.ciudad ===
+                    "Tela"
+            ).length;
+
+    }
+
+
+    /* =====================================================
+       RENDER TABLA
+    ====================================================== */
+
+    function renderizarTabla() {
+
+
+        const texto =
+
+            buscar
+            .value
+            .toLowerCase()
+            .trim();
+
+
+        const ciudad =
+            filtroCiudad.value;
+
+
+        const filtrados =
+
+            registros.filter(
+                item => {
+
+
+                    const nombre =
+
+                        `${item.nombre || ""} ${item.apellido || ""}`
+                        .toLowerCase();
+
+
+                    const telefono =
+
+                        String(
+                            item.telefono ||
+                            ""
+                        )
+                        .toLowerCase();
+
+
+                    const correo =
+
+                        String(
+                            item.correo ||
+                            ""
+                        )
+                        .toLowerCase();
+
+
+                    const coincideTexto =
+
+                        nombre.includes(
+                            texto
+                        )
+
+                        ||
+
+                        telefono.includes(
+                            texto
+                        )
+
+                        ||
+
+                        correo.includes(
+                            texto
+                        );
+
+
+                    const coincideCiudad =
+
+                        ciudad === "todas"
+
+                        ||
+
+                        item.ciudad ===
+                        ciudad;
+
+
+                    return (
+                        coincideTexto &&
+                        coincideCiudad
+                    );
+
+                }
+            );
+
+
+        tabla.innerHTML = "";
+
+
+        if (
+            filtrados.length === 0
+        ) {
+
+            estadoVacio.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        estadoVacio.style.display =
+            "none";
+
+
+        filtrados.forEach(
+            item => {
+
+
+                const tr =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                const iniciales =
+
+                    (
+                        (item.nombre || "")
+                        .charAt(0)
+
+                        +
+
+                        (item.apellido || "")
+                        .charAt(0)
+                    )
+                    .toUpperCase();
+
+
+                tr.innerHTML = `
+
+                    <td>
+
+                        <div class="participant">
+
+                            <div class="avatar">
+
+                                ${escapeHTML(
+                                    iniciales
+                                )}
+
+                            </div>
+
+                            <div>
+
+                                <div class="participant-name">
+
+                                    ${escapeHTML(
+                                        item.nombre || ""
+                                    )}
+
+                                    ${escapeHTML(
+                                        item.apellido || ""
+                                    )}
+
+                                </div>
+
+                                <div class="participant-email">
+
+                                    ${escapeHTML(
+                                        item.correo ||
+                                        "Sin correo"
+                                    )}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+
+                        ${escapeHTML(
+                            item.telefono ||
+                            "—"
+                        )}
+
+                    </td>
+
+
+                    <td>
+
+                        <span class="badge-city">
+
+                            ${escapeHTML(
+                                item.ciudad ||
+                                "—"
+                            )}
+
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <strong>
+
+                            ${Number(
+                                item.acompanantes ||
+                                0
+                            )}
+
+                        </strong>
+
+                    </td>
+
+
+                    <td>
+
+                        ${formatearFecha(
+                            item.creadoEn
+                        )}
+
+                    </td>
+
+
+                    <td>
+
+                        <div class="d-flex gap-1">
+
+
+                            <button
+
+                                class="action-btn"
+
+                                title="Ver registro"
+
+                                onclick="
+                                    verDetalle(
+                                        '${item.id}'
+                                    )
+                                "
+
+                            >
+
+                                <i class="bi bi-eye"></i>
+
+                            </button>
+
+
+                            <button
+
+                                class="action-btn"
+
+                                title="Generar PDF"
+
+                                onclick="
+                                    exportarPDF(
+                                        '${item.id}'
+                                    )
+                                "
+
+                            >
+
+                                <i class="bi bi-file-earmark-pdf"></i>
+
+                            </button>
+
+
+                        </div>
+
+                    </td>
+
+                `;
+
+
+                tabla.appendChild(
+                    tr
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ESCAPAR HTML
+    ====================================================== */
+
+    function escapeHTML(
+        value
+    ) {
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
+
+
+    /* =====================================================
+       FORMATEAR FECHA
+    ====================================================== */
+
+    function formatearFecha(
+        timestamp
+    ) {
+
+        if (!timestamp) {
+
+            return "—";
+
+        }
+
+
+        try {
+
+            const fecha =
+                obtenerFecha(
+                    timestamp
+                );
+
+
+            return fecha.toLocaleDateString(
+                "es-HN",
+                {
+
+                    day: "2-digit",
+
+                    month: "2-digit",
+
+                    year: "numeric"
+
+                }
+            );
+
+        }
+        catch {
+
+            return "—";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       BUSCADOR
+    ====================================================== */
+
+    buscar.addEventListener(
+        "input",
+        renderizarTabla
+    );
+
+
+    filtroCiudad.addEventListener(
+        "change",
+        renderizarTabla
+    );
+
+
+    /* =====================================================
+       VER DETALLE
+    ====================================================== */
+
+    window.verDetalle =
+        function(id) {
+
+
+            const item =
+                registros.find(
+                    x =>
+                        x.id === id
+                );
+
+
+            if (!item) {
+
+                return;
+
+            }
+
+
+            document.getElementById(
+                "detalleContenido"
+            ).innerHTML = `
+
+
+                <div class="row g-3">
+
+
+                    <div class="col-md-6">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                Nombre completo
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${escapeHTML(
+                                    item.nombre || ""
+                                )}
+
+                                ${escapeHTML(
+                                    item.apellido || ""
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                Teléfono
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${escapeHTML(
+                                    item.telefono ||
+                                    "—"
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                Correo
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${escapeHTML(
+                                    item.correo ||
+                                    "—"
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                Lugar
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${escapeHTML(
+                                    item.ciudad ||
+                                    "—"
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                Acompañantes
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${Number(
+                                    item.acompanantes ||
+                                    0
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                Fecha de registro
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${formatearFecha(
+                                    item.creadoEn
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                ID Firebase
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${escapeHTML(
+                                    item.id
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <div class="detail-box">
+
+                            <div class="detail-label">
+                                Observaciones
+                            </div>
+
+                            <div class="detail-value">
+
+                                ${escapeHTML(
+                                    item.observaciones ||
+                                    "Sin observaciones"
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12 pt-2">
+
+                        <button
+
+                            class="btn btn-main w-100"
+
+                            onclick="
+                                exportarPDF(
+                                    '${item.id}'
+                                )
+                            "
+
+                        >
+
+                            <i class="bi bi-file-earmark-pdf me-2"></i>
+
+                            EXPORTAR REGISTRO EN PDF
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+
+            const modal =
+                new bootstrap.Modal(
+                    document.getElementById(
+                        "modalDetalle"
+                    )
+                );
+
+
+            modal.show();
+
+        };
+
+
+    /* =====================================================
+       FUNCIONES GLOBALES
+    ====================================================== */
+
+    window.obtenerRegistro =
+        function(id) {
+
+            return registros.find(
+                x =>
+                    x.id === id
+            );
+
+        };
+
+
+    window.obtenerRegistros =
+        function() {
+
+            return registros;
+
+        };
+
+
+    /* =====================================================
+       INICIAR SISTEMA
+    ====================================================== */
+
+    escucharRegistros();
+
+
+</script>
+
+
+<!-- =====================================================
+     SISTEMA PDF
+====================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       PDF INDIVIDUAL
+    ====================================================== */
+
+    window.exportarPDF =
+        function(id) {
+
+
+            const item =
+                window.obtenerRegistro(
+                    id
+                );
+
+
+            if (!item) {
+
+                alert(
+                    "No se encontró el registro."
+                );
+
+                return;
+
+            }
+
+
+            generarPDF(
+                item
+            );
+
+        };
+
+
+    /* =====================================================
+       GENERAR PDF
+    ====================================================== */
+
+    function generarPDF(
+        item
+    ) {
+
+
+        const {
+            jsPDF
+        } =
+            window.jspdf;
+
+
+        const doc =
+            new jsPDF(
+                "p",
+                "mm",
+                "a4"
+            );
+
+
+        const cafe =
+            [145, 97, 17];
+
+
+        const verde =
+            [128, 160, 49];
+
+
+        const oscuro =
+            [25, 25, 25];
+
+
+        const gris =
+            [105, 105, 105];
+
+
+        /* =================================================
+           HEADER
+        ================================================= */
+
+        doc.setFillColor(
+            ...oscuro
+        );
+
+
+        doc.rect(
+            0,
+            0,
+            210,
+            48,
+            "F"
+        );
+
+
+        doc.setTextColor(
+            255,
+            255,
+            255
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.setFontSize(
+            22
+        );
+
+
+        doc.text(
+            "SISTEMA DE REGISTRO",
+            20,
+            21
+        );
+
+
+        doc.setFontSize(
+            8
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "normal"
+        );
+
+
+        doc.text(
+            "18 DE OCTUBRE DE 2026",
+            20,
+            30
+        );
+
+
+        doc.setTextColor(
+            ...verde
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.text(
+            "COMPROBANTE DE REGISTRO",
+            20,
+            39
+        );
+
+
+        /* =================================================
+           ID
+        ================================================= */
+
+        doc.setTextColor(
+            170,
+            170,
+            170
+        );
+
+
+        doc.setFontSize(
+            7
+        );
+
+
+        doc.text(
+            "ID FIREBASE",
+            158,
+            18
+        );
+
+
+        doc.setTextColor(
+            255,
+            255,
+            255
+        );
+
+
+        doc.setFontSize(
+            8
+        );
+
+
+        doc.text(
+            String(item.id)
+                .substring(
+                    0,
+                    12
+                )
+                .toUpperCase(),
+            158,
+            26
+        );
+
+
+        /* =================================================
+           TITULO
+        ================================================= */
+
+        doc.setTextColor(
+            ...cafe
+        );
+
+
+        doc.setFontSize(
+            13
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.text(
+            "DATOS DEL PARTICIPANTE",
+            20,
+            67
+        );
+
+
+        doc.setDrawColor(
+            ...cafe
+        );
+
+
+        doc.setLineWidth(
+            .6
+        );
+
+
+        doc.line(
+            20,
+            71,
+            190,
+            71
+        );
+
+
+        let y =
+            87;
+
+
+        const datos = [
+
+
+            [
+                "NOMBRE",
+                `${item.nombre || ""} ${item.apellido || ""}`
+            ],
+
+
+            [
+                "TELÉFONO",
+                item.telefono ||
+                "No especificado"
+            ],
+
+
+            [
+                "CORREO",
+                item.correo ||
+                "No especificado"
+            ],
+
+
+            [
+                "LUGAR",
+                item.ciudad ||
+                "No especificado"
+            ],
+
+
+            [
+                "ACOMPAÑANTES",
+                String(
+                    item.acompanantes ||
+                    0
+                )
+            ],
+
+
+            [
+                "FECHA DE REGISTRO",
+                fechaPDF(
+                    item.creadoEn
+                )
+            ]
+
+        ];
+
+
+        datos.forEach(
+            ([label, value]) => {
+
+
+                doc.setFillColor(
+                    248,
+                    246,
+                    241
+                );
+
+
+                doc.roundedRect(
+                    20,
+                    y - 7,
+                    170,
+                    17,
+                    3,
+                    3,
+                    "F"
+                );
+
+
+                doc.setTextColor(
+                    ...gris
+                );
+
+
+                doc.setFontSize(
+                    7
+                );
+
+
+                doc.setFont(
+                    "helvetica",
+                    "bold"
+                );
+
+
+                doc.text(
+                    label,
+                    27,
+                    y
+                );
+
+
+                doc.setTextColor(
+                    ...oscuro
+                );
+
+
+                doc.setFontSize(
+                    9
+                );
+
+
+                doc.setFont(
+                    "helvetica",
+                    "normal"
+                );
+
+
+                let texto =
+                    String(value);
+
+
+                if (
+                    texto.length > 62
+                ) {
+
+                    texto =
+                        texto.substring(
+                            0,
+                            59
+                        ) + "...";
+
+                }
+
+
+                doc.text(
+                    texto,
+                    82,
+                    y
+                );
+
+
+                y += 22;
+
+            }
+        );
+
+
+        y += 5;
+
+
+        /* =================================================
+           OBSERVACIONES
+        ================================================= */
+
+        doc.setTextColor(
+            ...verde
+        );
+
+
+        doc.setFontSize(
+            11
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.text(
+            "OBSERVACIONES",
+            20,
+            y
+        );
+
+
+        y += 9;
+
+
+        doc.setTextColor(
+            ...gris
+        );
+
+
+        doc.setFontSize(
+            9
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "normal"
+        );
+
+
+        const observaciones =
+            item.observaciones ||
+            "Sin observaciones.";
+
+
+        const lineas =
+            doc.splitTextToSize(
+                observaciones,
+                165
+            );
+
+
+        doc.text(
+            lineas,
+            20,
+            y
+        );
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        doc.setDrawColor(
+            225,
+            220,
+            210
+        );
+
+
+        doc.line(
+            20,
+            275,
+            190,
+            275
+        );
+
+
+        doc.setTextColor(
+            ...gris
+        );
+
+
+        doc.setFontSize(
+            7
+        );
+
+
+        doc.text(
+            "SISTEMA DE REGISTRO",
+            20,
+            285
+        );
+
+
+        doc.setTextColor(
+            ...cafe
+        );
+
+
+        doc.setFont(
+            "helvetica",
+            "bold"
+        );
+
+
+        doc.text(
+            "18 OCTUBRE 2026",
+            190,
+            285,
+            {
+                align:
+                    "right"
+            }
+        );
+
+
+        /* =================================================
+           NOMBRE ARCHIVO
+        ================================================= */
+
+        const archivo =
+
+            `Registro_${limpiarNombre(
+                item.nombre
+            )}_${limpiarNombre(
+                item.apellido
+            )}.pdf`;
+
+
+        doc.save(
+            archivo
+        );
+
+    }
+
+
+    /* =====================================================
+       PDF TODOS
+    ====================================================== */
+
+    window.exportarTodosPDF =
+        function() {
+
+
+            const registros =
+                window.obtenerRegistros();
+
+
+            if (
+                !registros ||
+                registros.length === 0
+            ) {
+
+                alert(
+                    "No existen registros para exportar."
+                );
+
+                return;
+
+            }
+
+
+            const {
+                jsPDF
+            } =
+                window.jspdf;
+
+
+            const doc =
+                new jsPDF(
+                    "p",
+                    "mm",
+                    "a4"
+                );
+
+
+            registros.forEach(
+                (item, index) => {
+
+
+                    if (
+                        index > 0
+                    ) {
+
+                        doc.addPage();
+
+                    }
+
+
+                    /* HEADER */
+
+                    doc.setFillColor(
+                        25,
+                        25,
+                        25
+                    );
+
+
+                    doc.rect(
+                        0,
+                        0,
+                        210,
+                        38,
+                        "F"
+                    );
+
+
+                    doc.setTextColor(
+                        255,
+                        255,
+                        255
+                    );
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "bold"
+                    );
+
+
+                    doc.setFontSize(
+                        18
+                    );
+
+
+                    doc.text(
+                        "SISTEMA DE REGISTRO",
+                        18,
+                        17
+                    );
+
+
+                    doc.setFontSize(
+                        8
+                    );
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "normal"
+                    );
+
+
+                    doc.text(
+                        "LISTADO DE REGISTROS",
+                        18,
+                        26
+                    );
+
+
+                    doc.setTextColor(
+                        128,
+                        160,
+                        49
+                    );
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "bold"
+                    );
+
+
+                    doc.text(
+                        "18 OCTUBRE 2026",
+                        160,
+                        20
+                    );
+
+
+                    /* NOMBRE */
+
+                    doc.setTextColor(
+                        145,
+                        97,
+                        17
+                    );
+
+
+                    doc.setFontSize(
+                        13
+                    );
+
+
+                    doc.text(
+                        `${item.nombre || ""} ${item.apellido || ""}`,
+                        18,
+                        55
+                    );
+
+
+                    doc.setDrawColor(
+                        145,
+                        97,
+                        17
+                    );
+
+
+                    doc.line(
+                        18,
+                        59,
+                        192,
+                        59
+                    );
+
+
+                    let y =
+                        74;
+
+
+                    const campos = [
+
+
+                        [
+                            "TELÉFONO",
+                            item.telefono
+                        ],
+
+
+                        [
+                            "CORREO",
+                            item.correo
+                        ],
+
+
+                        [
+                            "LUGAR",
+                            item.ciudad
+                        ],
+
+
+                        [
+                            "ACOMPAÑANTES",
+                            item.acompanantes ||
+                            0
+                        ],
+
+
+                        [
+                            "REGISTRO",
+                            fechaPDF(
+                                item.creadoEn
+                            )
+                        ]
+
+                    ];
+
+
+                    campos.forEach(
+                        ([label, value]) => {
+
+
+                            doc.setTextColor(
+                                105,
+                                105,
+                                105
+                            );
+
+
+                            doc.setFontSize(
+                                7
+                            );
+
+
+                            doc.setFont(
+                                "helvetica",
+                                "bold"
+                            );
+
+
+                            doc.text(
+                                label,
+                                20,
+                                y
+                            );
+
+
+                            doc.setTextColor(
+                                25,
+                                25,
+                                25
+                            );
+
+
+                            doc.setFontSize(
+                                9
+                            );
+
+
+                            doc.setFont(
+                                "helvetica",
+                                "normal"
+                            );
+
+
+                            doc.text(
+                                String(
+                                    value ||
+                                    "No especificado"
+                                ),
+                                65,
+                                y
+                            );
+
+
+                            y += 18;
+
+                        }
+                    );
+
+
+                    y += 7;
+
+
+                    doc.setTextColor(
+                        128,
+                        160,
+                        49
+                    );
+
+
+                    doc.setFontSize(
+                        11
+                    );
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "bold"
+                    );
+
+
+                    doc.text(
+                        "OBSERVACIONES",
+                        20,
+                        y
+                    );
+
+
+                    y += 9;
+
+
+                    doc.setTextColor(
+                        90,
+                        90,
+                        90
+                    );
+
+
+                    doc.setFontSize(
+                        9
+                    );
+
+
+                    doc.setFont(
+                        "helvetica",
+                        "normal"
+                    );
+
+
+                    const obs =
+                        item.observaciones ||
+                        "Sin observaciones.";
+
+
+                    const lineas =
+                        doc.splitTextToSize(
+                            obs,
+                            165
+                        );
+
+
+                    doc.text(
+                        lineas,
+                        20,
+                        y
+                    );
+
+
+                    /* FOOTER */
+
+                    doc.setDrawColor(
+                        225,
+                        220,
+                        210
+                    );
+
+
+                    doc.line(
+                        18,
+                        278,
+                        192,
+                        278
+                    );
+
+
+                    doc.setTextColor(
+                        105,
+                        105,
+                        105
+                    );
+
+
+                    doc.setFontSize(
+                        7
+                    );
+
+
+                    doc.text(
+                        `Registro ${index + 1} de ${registros.length}`,
+                        18,
+                        287
+                    );
+
+
+                    doc.setTextColor(
+                        145,
+                        97,
+                        17
+                    );
+
+
+                    doc.text(
+                        "SISTEMA DE REGISTRO",
+                        192,
+                        287,
+                        {
+                            align:
+                                "right"
+                        }
+                    );
+
+                }
+            );
+
+
+            doc.save(
+                "Registros_2026.pdf"
+            );
+
+        };
+
+
+    /* =====================================================
+       FECHA PDF
+    ====================================================== */
+
+    function fechaPDF(
+        timestamp
+    ) {
+
+        if (!timestamp) {
+
+            return "No disponible";
+
+        }
+
+
+        try {
+
+            const fecha =
+
+                timestamp.toDate
+                    ? timestamp.toDate()
+                    : new Date(timestamp);
+
+
+            return fecha.toLocaleDateString(
+                "es-HN",
+                {
+
+                    day:
+                        "2-digit",
+
+                    month:
+                        "long",
+
+                    year:
+                        "numeric"
+
+                }
+            );
+
+        }
+        catch {
+
+            return "No disponible";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       LIMPIAR NOMBRE
+    ====================================================== */
+
+    function limpiarNombre(
+        nombre
+    ) {
+
+        return String(
+            nombre ||
+            "participante"
+        )
+
+        .normalize(
+            "NFD"
+        )
+
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        )
+
+        .replace(
+            /[^a-zA-Z0-9]/g,
+            "_"
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
+```
